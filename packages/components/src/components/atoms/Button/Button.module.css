@@ -1,0 +1,49 @@
+.base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	font-size: calc(var(--fiber-font-sizes-body) * 1px);
+	font-weight: calc(var(--fiber-font-weights-body-regular) * 1px);
+	line-height: calc(var(--fiber-line-heights-body) * 1px);
+	letter-spacing: calc(var(--fiber-letter-spacing-default) * 1px);
+	border-radius: calc(var(--fiber-border-radius-md) * 1px);
+}
+.default {
+	border-width: 1px;
+	border-style: solid;
+	border-color: gray;
+	background-color: transparent;
+}
+.danger {
+	color: var(--fiber-colors-red-800);
+}
+.outline {
+	color: var(--fiber-colors-gray-800);
+	border-color: var(--fiber-colors-gray-800);
+	background-color: transparent;
+}
+.size-default {
+	padding-top: calc(var(--fiber-spacing-sm) * 1px);
+	padding-bottom: calc(var(--fiber-spacing-sm) * 1px);
+	padding-left: calc(var(--fiber-spacing-md) * 1px);
+	padding-right: calc(var(--fiber-spacing-md) * 1px);
+}
+.size-sm {
+	padding-top: calc(var(--fiber-spacing-xs) * 1px);
+	padding-bottom: calc(var(--fiber-spacing-xs) * 1px);
+	padding-left: calc(var(--fiber-spacing-sm) * 1px);
+	padding-right: calc(var(--fiber-spacing-sm) * 1px);
+}
+.size-lg {
+	padding-top: calc(var(--fiber-spacing-md) * 1px);
+	padding-bottom: calc(var(--fiber-spacing-md) * 1px);
+	padding-left: calc(var(--fiber-spacing-lg) * 1px);
+	padding-right: calc(var(--fiber-spacing-lg) * 1px);
+}
+.icon {
+	border-radius: 50%;
+	padding: calc(var(--fiber-spacing-md) * 1px);
+	height: calc(var(--fiber-spacing-xl) * 1px);
+	width: calc(var(--fiber-spacing-xl) * 1px);
+}

@@ -1,0 +1,46 @@
+{
+	"name": "fiber_design-system",
+	"version": "0.0.1",
+	"description": "BLabs Fiber design system",
+	"license": "MIT",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"postinstall": "npx husky install",
+		"commit": "cz",
+		"storybook:components": "yarn workspace @btechlabs/fiber-components storybook",
+		"build": "parallelshell 'yarn workspace @btechlabs/fiber-components build' 'yarn workspace @btechlabs/fiber-styles build'",
+		"test": "yarn workspace @btechlabs/fiber-components test"
+	},
+	"devDependencies": {
+		"@changesets/cli": "2.26.2",
+		"@commitlint/cli": "18.4.1",
+		"@commitlint/config-conventional": "18.4.0",
+		"@typescript-eslint/eslint-plugin": "6.9.0",
+		"@typescript-eslint/parser": "6.9.0",
+		"cz-conventional-changelog": "3.3.0",
+		"eslint": "8.52.0",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"husky": "8.0.3",
+		"lint-staged": "15.0.2",
+		"parallelshell": "3.0.1",
+		"prettier": "3.0.3",
+		"rimraf": "5.0.5"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --quiet --fix"
+		],
+		"*.{json,md,html,js,jsx,ts,tsx}": [
+			"prettier --write"
+		]
+	},
+	"packageManager": "yarn@4.0.1",
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	}
+}

@@ -1,0 +1,61 @@
+{
+	"name": "@btechlabs/fiber-styles",
+	"version": "0.1.0",
+	"description": "BLabs design system styles",
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/index.css",
+	"repository": {
+		"url": "git+https://github.com/btechlabs/fiber-web.git"
+	},
+	"publishConfig": {
+		"access": "restricted",
+		"@btechlabs:registry": "https://npm.pkg.github.com/"
+	},
+	"keywords": [
+		"design",
+		"system",
+		"fiber",
+		"blabs",
+		"tokens",
+		"styles"
+	],
+	"author": "BLabs",
+	"bugs": {
+		"url": "https://github.com/btechlabs/fiber-web/issues"
+	},
+	"homepage": "https://github.com/btechlabs/fiber-web/tree/main/packages/styles/README.md",
+	"scripts": {
+		"build": "npx rimraf dist && yarn build:typescript && yarn run transform-tokens && yarn style-dictionary && yarn copy-json-tokens",
+		"style-dictionary": "ts-node src/tokens/style-dictionary/build.ts",
+		"transform-tokens": "token-transformer ./src/tokens/input.json ./src/tokens/output.json",
+		"build:typescript": "tsc",
+		"changeset": "cd ../../ && yarn changeset",
+		"copy-json-tokens": "ncp ./src/tokens/output.json ./dist/tokens/output.json && ncp ./src/tokens/input.json ./dist/tokens/input.json"
+	},
+	"exports": {
+		"./index.css": "./dist/tokens/variables.css",
+		"./index.scss": "./dist/tokens/variables.scss",
+		"./variables.js": "./dist/tokens/variables.js",
+		"./variables-detailed.js": "./dist/tokens/variables-detailed.js",
+		"./diff.js": {
+			"import": "./dist/diff.js",
+			"types": "./dist/dts/diff.d.ts"
+		},
+		"./input.json": "./dist/tokens/input.json",
+		"./output.json": "./dist/tokens/output.json"
+	},
+	"dependencies": {
+		"style-dictionary": "3.7.0"
+	},
+	"devDependencies": {
+		"ncp": "2.0.0",
+		"sass": "1.69.5",
+		"token-transformer": "0.0.27",
+		"ts-node": "10.9.1",
+		"tsc": "2.0.4",
+		"typescript": "5.2.2"
+	}
+}

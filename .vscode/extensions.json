@@ -1,0 +1,16 @@
+{
+	"recommendations": [
+		"streetsidesoftware.code-spell-checker",
+		"rvest.vs-code-prettier-eslint",
+		"esbenp.prettier-vscode",
+		"ms-playwright.playwright",
+		"dbaeumer.vscode-eslint",
+		"dsznajder.es7-react-js-snippets",
+		"Orta.vscode-twoslash-queries",
+		"github.vscode-pull-request-github",
+		"unifiedjs.vscode-mdx",
+		"davidanson.vscode-markdownlint",
+		"infarkt.css-to-jss",
+		"zachgawlik.convert-object-to-jsx"
+	]
+}

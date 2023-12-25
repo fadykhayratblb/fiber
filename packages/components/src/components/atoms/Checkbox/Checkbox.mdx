@@ -1,0 +1,49 @@
+import { Story, ArgsTable, Canvas, Unstyled, Meta } from '@storybook/blocks';
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
+import { Checkbox } from '.';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Checkbox
+
+## Overview
+
+<Unstyled>
+	<div style={{ display: 'flex', gap: '1rem' }}>
+		<Checkbox checked={false} />
+		<Checkbox checked />
+	</div>
+</Unstyled>
+
+## States
+
+### Checked
+
+<Unstyled>
+	<Checkbox checked />
+</Unstyled>
+
+### Unchecked
+
+<Unstyled>
+	<Checkbox checked={false} />
+</Unstyled>
+
+### Indeterminate
+
+<Unstyled>
+	<Checkbox indeterminate />
+</Unstyled>
+
+## Variants
+
+## Props
+
+## Examples
+
+## Accessibility
+
+## References

@@ -1,0 +1,44 @@
+name: Release packages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - changeset-release/main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Check if changeset files exist and if so, abort
+        run: |
+          echo "Checking if changeset files exist"
+          if [ -z "$(find .changeset -type f -name '*-*-*.md')" ]; then
+            echo "No changeset files found, continuing"
+          else
+            echo "Changeset files exist, aborting"
+            echo "Run manual changeset version workflow to create a new PR"
+            echo "Merge it, then re-run this workflow"
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Publish fiber-web packages
+        run: yarn changeset publish
+        #  --registry=https://npm.pkg.github.com --scope=@btechlabs
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GH_PACKAGES_TOKEN}}

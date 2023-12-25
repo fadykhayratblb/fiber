@@ -1,0 +1,12 @@
+node_modules
+build
+*.tgz
+
+.npmrc
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
