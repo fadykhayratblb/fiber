@@ -30,10 +30,10 @@
 	"scripts": {
 		"build": "npx rimraf dist && yarn build:typescript && yarn run transform-tokens && yarn style-dictionary && yarn copy-json-tokens",
 		"style-dictionary": "ts-node src/tokens/style-dictionary/build.ts",
-		"transform-tokens": "token-transformer ./src/tokens/input.json ./src/tokens/output.json",
+		"transform-tokens": "token-transformer ./src/tokens/tokens.json ./src/tokens/light.json  ./src/tokens/dark.json  --theme --themeOutputPath  ./src/tokens  --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true --preserveRawValue=false --throwErrorWhenNotResolved=true --resolveReferences=true",
 		"build:typescript": "tsc",
 		"changeset": "cd ../../ && yarn changeset",
-		"copy-json-tokens": "ncp ./src/tokens/output.json ./dist/tokens/output.json && ncp ./src/tokens/input.json ./dist/tokens/input.json"
+		"copy-json-tokens": "ncp ./src/tokens/light.json ./dist/tokens/light.json && ncp ./src/tokens/tokens.json ./dist/tokens/tokens.json &&./src/tokens/dark.json ./dist/tokens/dark.json "
 	},
 	"exports": {
 		"./index.css": "./dist/tokens/variables.css",
@@ -44,8 +44,9 @@
 			"import": "./dist/diff.js",
 			"types": "./dist/dts/diff.d.ts"
 		},
-		"./input.json": "./dist/tokens/input.json",
-		"./output.json": "./dist/tokens/output.json"
+		"./tokens.json": "./dist/tokens/tokens.json",
+		"./light.json": "./dist/tokens/light.json",
+		"./dark.json": "./dist/tokens/dark.json"
 	},
 	"dependencies": {
 		"style-dictionary": "3.7.0"

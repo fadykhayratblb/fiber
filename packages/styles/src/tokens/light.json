@@ -1,0 +1,77 @@
+{
+	"small": {
+		"value": 32,
+		"type": "spacing"
+	},
+	"Colors": {
+		"Primary": {
+			"100": {
+				"value": "#3fb67d",
+				"type": "color",
+				"$extensions": {
+					"studio.tokens": {
+						"modify": {
+							"type": "lighten",
+							"value": "0.44",
+							"space": "lch"
+						}
+					}
+				}
+			},
+			"300": {
+				"value": "#3fb67d",
+				"type": "color",
+				"$extensions": {
+					"studio.tokens": {
+						"modify": {
+							"type": "lighten",
+							"value": "0.20",
+							"space": "hsl"
+						}
+					}
+				}
+			},
+			"500": {
+				"value": "#3fb67d",
+				"type": "color",
+				"description": "\nNaming Depends on HSl ( L ) nummber\n"
+			},
+			"700": {
+				"value": "#3fb67d",
+				"type": "color",
+				"$extensions": {
+					"studio.tokens": {
+						"modify": {
+							"type": "darken",
+							"value": "0.44",
+							"space": "hsl"
+						}
+					}
+				}
+			},
+			"800": {
+				"value": "#3fb67d",
+				"type": "color",
+				"$extensions": {
+					"studio.tokens": {
+						"modify": {
+							"type": "darken",
+							"value": "0.66",
+							"space": "hsl"
+						}
+					}
+				}
+			}
+		},
+		"Absolute": {
+			"White": {
+				"value": "#000",
+				"type": "color"
+			},
+			"Black": {
+				"value": "#000",
+				"type": "color"
+			}
+		}
+	}
+}
