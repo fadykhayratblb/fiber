@@ -1509,7 +1509,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@btechlabs/fiber-components@workspace:packages/components"
   dependencies:
-    "@emotion/css": "npm:11.11.2"
     "@playwright/experimental-ct-react": "npm:1.39.0"
     "@playwright/test": "npm:1.39.0"
     "@radix-ui/react-checkbox": "npm:1.0.4"
@@ -1549,7 +1548,7 @@ __metadata:
     ncp: "npm:2.0.0"
     sass: "npm:1.69.5"
     style-dictionary: "npm:3.7.0"
-    token-transformer: "npm:0.0.27"
+    token-transformer: "npm:0.0.33"
     ts-node: "npm:10.9.1"
     tsc: "npm:2.0.4"
     typescript: "npm:5.2.2"
@@ -2039,19 +2038,6 @@ __metadata:
     "@emotion/weak-memoize": "npm:^0.3.1"
     stylis: "npm:4.2.0"
   checksum: ef29756247dafb87168b4ffb76ee60feb06b8a1016323ecb1d3ba8aed3f4300ca10049bedbfe83aa11e0d81e616c328002a9d50020ebb3af6e4f5337a785c1fe
-  languageName: node
-  linkType: hard
-
-"@emotion/css@npm:11.11.2":
-  version: 11.11.2
-  resolution: "@emotion/css@npm:11.11.2"
-  dependencies:
-    "@emotion/babel-plugin": "npm:^11.11.0"
-    "@emotion/cache": "npm:^11.11.0"
-    "@emotion/serialize": "npm:^1.1.2"
-    "@emotion/sheet": "npm:^1.2.2"
-    "@emotion/utils": "npm:^1.2.1"
-  checksum: 718f758575f05e3610cdef9bdcfcdf17eae1992616c7cc85e29a24ff3b4d3da9968cc1c253a510874c056c22dc73b6b12bd759be9943e20141e0603a3cb35630
   languageName: node
   linkType: hard
 
@@ -12953,14 +12939,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"token-transformer@npm:0.0.27":
-  version: 0.0.27
-  resolution: "token-transformer@npm:0.0.27"
+"token-transformer@npm:0.0.33":
+  version: 0.0.33
+  resolution: "token-transformer@npm:0.0.33"
   dependencies:
-    yargs: "npm:^17.4.1"
+    yargs: "npm:^17.6.2"
   bin:
-    token-transformer: index.js
-  checksum: ce0eaee9aebc68eb8bf7afab7abd98c4dfe2a30d232195c8e048c1d0aeece2c321fbb0396f247b0972b0ac9e5a994bb8dd06c17d124987cfcac7e280ad31bbb9
+    token-transformer: cli.js
+  checksum: 0030b8624cc35650b3e230d39d0cd7140eb286d3e3923ca84d608b7f1c0dd7cde77b811d04f7de76fdbd16f844aa51ec360241e0ca5ddc9037284f076a17bc55
   languageName: node
   linkType: hard
 
@@ -13988,7 +13974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.0.0, yargs@npm:^17.4.1, yargs@npm:^17.7.1":
+"yargs@npm:^17.0.0, yargs@npm:^17.6.2, yargs@npm:^17.7.1":
   version: 17.7.2
   resolution: "yargs@npm:17.7.2"
   dependencies:

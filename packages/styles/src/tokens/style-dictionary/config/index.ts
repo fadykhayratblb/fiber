@@ -1,5 +1,4 @@
-const source1 = 'src/tokens/light.json';
-const source2 = 'src/tokens/dark.json';
+const source = 'src/tokens/output.json';
 
 const destination = 'dist/tokens/';
 
@@ -9,7 +8,7 @@ const commonConfig = {
 };
 
 export const config = {
-	source: [source1, source2],
+	source: [source],
 	platforms: {
 		scss: {
 			...commonConfig,

@@ -30,10 +30,10 @@
 	"scripts": {
 		"build": "npx rimraf dist && yarn build:typescript && yarn run transform-tokens && yarn style-dictionary && yarn copy-json-tokens",
 		"style-dictionary": "ts-node src/tokens/style-dictionary/build.ts",
-		"transform-tokens": "token-transformer ./src/tokens/tokens.json ./src/tokens/light.json  ./src/tokens/dark.json  --theme --themeOutputPath  ./src/tokens  --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true --preserveRawValue=false --throwErrorWhenNotResolved=true --resolveReferences=true",
+		"transform-tokens": "token-transformer ./src/tokens/tokens.json ./src/tokens/output.json  --expandTypography=true --expandShadow=true --expandComposition=true --expandBorder=true --preserveRawValue=false --throwErrorWhenNotResolved=true --resolveReferences=true",
 		"build:typescript": "tsc",
 		"changeset": "cd ../../ && yarn changeset",
-		"copy-json-tokens": "ncp ./src/tokens/light.json ./dist/tokens/light.json && ncp ./src/tokens/tokens.json ./dist/tokens/tokens.json &&./src/tokens/dark.json ./dist/tokens/dark.json "
+		"copy-json-tokens": "ncp ./src/tokens/output.json ./dist/tokens/output.json && ncp ./src/tokens/tokens.json ./dist/tokens/tokens.json && "
 	},
 	"exports": {
 		"./index.css": "./dist/tokens/variables.css",
@@ -45,8 +45,7 @@
 			"types": "./dist/dts/diff.d.ts"
 		},
 		"./tokens.json": "./dist/tokens/tokens.json",
-		"./light.json": "./dist/tokens/light.json",
-		"./dark.json": "./dist/tokens/dark.json"
+		"./output.json": "./dist/tokens/output.json"
 	},
 	"dependencies": {
 		"style-dictionary": "3.7.0"
@@ -54,7 +53,7 @@
 	"devDependencies": {
 		"ncp": "2.0.0",
 		"sass": "1.69.5",
-		"token-transformer": "0.0.27",
+		"token-transformer": "0.0.33",
 		"ts-node": "10.9.1",
 		"tsc": "2.0.4",
 		"typescript": "5.2.2"
