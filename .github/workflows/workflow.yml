@@ -16,11 +16,11 @@ jobs:
         with:
           repository: fadykhayratblb/new-figma-token
           ref: main
-          path: fiber-web
+          path: new-figma-token
 
       - name: Update package version
         run: |
-          cd fiber-web
+          cd new-figma-token
           git checkout -b update-package-version
           sed -i 's/"@rollup\/plugin-dynamic-import-vars"/"@btechlabs\/fiber-core-web@3"/g' package.json
           git add package.json
@@ -43,4 +43,4 @@ jobs:
           labels: "automated"
           base: main
           head: fadykhayratblb:update-package-version
-          base-repo: btechlabs/fiber-web
+          base-repo: fadykhayratblb/new-figma-token
