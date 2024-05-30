@@ -12,16 +12,15 @@ jobs:
       - name: Set Git User
         run: git config --global user.email "fady.mehany@btech.com" && git config --global user.name "fadykhayratblb"
 
-      - name: Checkout fiber-web repository
-        uses: actions/checkout@v3
-        with:
-          repository: fadykhayratblb/new-figma-token
-          ref: main
-          path: new-figma-token
-      - name: Set Git User
-        run: git config --global user.email "fady.mehany@btech.com" && git config --global user.name "fadykhayratblb"
-      - name: Update package version
+      - name: Push to Fiber-web
+        env:
+          ACCESS_TOKEN: ${{ secrets.PAT }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        working-directory: ${{ github.workspace }} 
         run: |
+          git config --global user.name 'fadykhayratblb'
+          git config --global user.email 'fady.mehany@btech.com'
+          git clone https://user:$ACCESS_TOKEN@github.com/fadykhayratblb/new-figma-token.git new-figma-token    
           cd new-figma-token
           git checkout -b update-package-version
           sed -i 's/"@rollup\/plugin-dynamic-import-vars"/"@btechlabs\/fiber-core-web@3"/g' package.json
