@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Git User
-        run: git config --global user.email "github-actions[bot]@users.noreply.github.com" && git config --global user.name "github-actions[bot]"
+        run: git config --global user.email "fady.mehany@btech.com" && git config --global user.name "fadykhayratblb"
 
       - name: Checkout fiber-web repository
         uses: actions/checkout@v3
