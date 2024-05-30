@@ -23,7 +23,7 @@ jobs:
           git clone https://user:$ACCESS_TOKEN@github.com/fadykhayratblb/new-figma-token.git new-figma-token    
           cd new-figma-token
           git checkout -b update-package-version
-          sed -i 's/"@rollup\/plugin-dynamic-import-vars"/"@btechlabs\/fiber-core-web@3"/g' package.json
+          sed -i 's/"@rollup\/plugin-dynamic-import-vars"/"@rollup\/plugin-dynamic-import-vars@${{3}}"/g' fiber-web/package.json
           git add package.json
           git commit -am "chore: bump package version"
           git push origin update-package-version
