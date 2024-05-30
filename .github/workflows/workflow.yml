@@ -15,6 +15,8 @@ jobs:
       - name: Push to Fiber-web
         env:
           ACCESS_TOKEN: ${{ secrets.PAT }}
+          GH_TOKEN: ${{ secrets.PAT }}
+
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         working-directory: ${{ github.workspace }} 
         run: |
@@ -22,14 +24,14 @@ jobs:
           git config --global user.email 'fady.mehany@btech.com'
           git clone https://user:$ACCESS_TOKEN@github.com/fadykhayratblb/new-figma-token.git new-figma-token    
           cd new-figma-token
-          git checkout -b update-package-versions
+          git checkout -b update-package-version
           sed -i 's/"@rollup\/plugin-dynamic-import-vars": ".*"/"@rollup\/plugin-dynamic-import-vars": "3"/g' package.json
           git add package.json
           git commit -am "chore: bump package version"
-          git push origin update-package-versions
+          git push origin update-package-version
           # create a pull-requests containing the updates.
           gh pr create \
             --body "" \
             --title "chore: update scripts to $LATEST_TAG" \
-            --head update-package-versions \
+            --head update-package-version \
             --base "main"
