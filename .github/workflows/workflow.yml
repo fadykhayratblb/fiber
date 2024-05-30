@@ -18,7 +18,8 @@ jobs:
           repository: fadykhayratblb/new-figma-token
           ref: main
           path: new-figma-token
-
+      - name: Set Git User
+        run: git config --global user.email "fady.mehany@btech.com" && git config --global user.name "fadykhayratblb"
       - name: Update package version
         run: |
           cd new-figma-token
