@@ -14,7 +14,7 @@ jobs:
       - name: Checkout fiber-web repository
         uses: actions/checkout@v3
         with:
-          repository: btechlabs/fiber-web
+          repository: fadykhayratblb/new-figma-token
           ref: main
           path: fiber-web
 
@@ -22,7 +22,7 @@ jobs:
         run: |
           cd fiber-web
           git checkout -b update-package-version
-          sed -i 's/"@btechlabs\/fiber-core-web"/"@btechlabs\/fiber-core-web@3"/g' package.json
+          sed -i 's/"@rollup\/plugin-dynamic-import-vars"/"@btechlabs\/fiber-core-web@3"/g' package.json
           git add package.json
           git commit -am "chore: bump package version"
           git push origin update-package-version
