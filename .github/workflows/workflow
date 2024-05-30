@@ -1,0 +1,28 @@
+name: Publish Fiber Core Web
+permissions: write-all
+on:
+  workflow_dispatch:
+
+jobs:
+      - name: Update package version in fiber web
+        run: |
+            git clone https://github.com/btechlabs/fiber-web.git
+            cd fiber-web
+            git checkout -b update-package-version
+            sed -i 's/"@btechlabs\/fiber-core-web"/"@btechlabs\/fiber-core-web@3"/g' fiber-web/package.json
+            git add package.json
+            git commit -am "chore: bump package version"
+            git push origin update-package-version
+  
+      - name: Open pull request in fiber web
+        uses: peter-evans/create-pull-request@v3
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            commit-message: "chore: bump Fiber Web Core version"
+            branch: update-package-version
+            title: "Update web core package version in package json"
+            body: "Automated pull request after releasing new version."
+            labels: "automated"
+            base: main
+            head: fadykhayratblb:update-package-version
+            base-repo: btechlabs/fiber-web
