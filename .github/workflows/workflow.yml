@@ -22,28 +22,14 @@ jobs:
           git config --global user.email 'fady.mehany@btech.com'
           git clone https://user:$ACCESS_TOKEN@github.com/fadykhayratblb/new-figma-token.git new-figma-token    
           cd new-figma-token
-          git checkout -b update-package-version
+          git checkout -b update-package-versions
           sed -i 's/"@rollup\/plugin-dynamic-import-vars": ".*"/"@rollup\/plugin-dynamic-import-vars": "3"/g' package.json
           git add package.json
           git commit -am "chore: bump package version"
-          git push origin update-package-version
-
-  open-pull-request:
-    name: Open pull request in fiber web
-    runs-on: ubuntu-latest
-    needs: update-package-version
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.PAT }}
-          commit-message: "chore: bump Fiber Web Core version"
-          branch: update-package-version
-          title: "Update web core package version in package json"
-          body: "Automated pull request after releasing new version."
-          labels: "automated"
-          base: main
-          head: fadykhayratblb:update-package-version
-          base-repo: fadykhayratblb/new-figma-token
+          git push origin update-package-versions
+          # create a pull-requests containing the updates.
+          gh pr create \
+            --body "" \
+            --title "chore: update scripts to $LATEST_TAG" \
+            --head update-package-versions \
+            --base "main"
